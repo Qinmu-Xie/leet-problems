@@ -1,6 +1,8 @@
 package com.qmx.leet.problems;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
@@ -40,7 +42,7 @@ class Solution {
         return res.next;
     }
 
-    public int lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstring(String s){
         char[] chars = s.toCharArray();
         if (chars.length == 0)
             return 0;
@@ -56,6 +58,24 @@ class Solution {
         }
         Arrays.sort(lengths);
         return lengths[chars.length - 1];
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        int n = s.length();
+        Set<Character> set = new HashSet<>();
+        int ans = 0, i = 0, j = 0;
+        while (i < n && j < n) {
+            // try to extend the range [i, j]
+            if (!set.contains(s.charAt(j))) {
+                set.add(s.charAt(j++));
+                ans = Math.max(ans, j - i);
+            } else {
+                set.remove(s.charAt(i++));
+            }
+            System.out.println("i: " + i + " j: " + j + " set: ");
+            set.forEach(System.out::println);
+        }
+        return ans;
     }
 
 }
