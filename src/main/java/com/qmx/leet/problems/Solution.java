@@ -212,7 +212,35 @@ class Solution {
     }
 
     public String convert(String s, int numRows) {
-        return "";
+        if (numRows == 1) {
+            return s;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < numRows; i++) {
+            int j = 0, mod = 0;
+            while (j + i < s.length()) {
+                int step = (mod % 2 == 0) ? 2 * (numRows - i - 1) : 2 * i;
+                if (step != 0) {
+                    sb.append(s.charAt(i + j));
+                    j += step;
+                }
+                mod++;
+            }
+        }
+        return sb.toString();
     }
+
+    public int reverse(int x) {
+        int ans = 0;
+        String numberPart = (x >= 0) ? String.valueOf(x) : String.valueOf(x).substring(1);
+        String numberPartStr = new StringBuilder(numberPart).reverse().toString();
+        try {
+            ans = x >= 0 ? Integer.valueOf(numberPartStr) : Integer.valueOf("-" + numberPartStr);
+        } catch (NumberFormatException e) {
+
+        }
+        return ans;
+    }
+
 
 }

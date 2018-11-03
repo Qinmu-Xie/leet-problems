@@ -68,7 +68,15 @@ public class SolutionTest {
 
     @Test
     public void convert() {
-        assertEquals("PAHNAPLSIIGYIR",solution.convert("PAYPALISHIRING",3));
-        assertEquals("PINALSIGYAHRPI",solution.convert("PAYPALISHIRING",4));
+        assertEquals("PAHNAPLSIIGYIR", solution.convert("PAYPALISHIRING", 3));
+        assertEquals("PINALSIGYAHRPI", solution.convert("PAYPALISHIRING", 4));
+    }
+
+    @Test
+    public void reverse() {
+        assertEquals(321, solution.reverse(123));
+        assertEquals(-321, solution.reverse(-123));
+        assertEquals(21, solution.reverse(120));
+        assertEquals(0, solution.reverse(1534236469));
     }
 }
