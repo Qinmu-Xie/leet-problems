@@ -296,4 +296,34 @@ class Solution {
         }
         return maxArea;
     }
+
+    public String longestCommonPrefixUgly(String[] strs) {
+
+        String shortest = Arrays.stream(strs)
+                .sorted(Comparator.comparingInt(String::length))
+                .findFirst().orElse("");
+
+        StringBuilder prefix = new StringBuilder();
+        for (int i = 0; i < shortest.length(); i++) {
+            int tempi = i;
+            if (Arrays.stream(strs).allMatch(s -> shortest.charAt(tempi) == s.charAt(tempi))) {
+                prefix.append(shortest.charAt(i));
+            } else {
+                break;
+            }
+        }
+        return prefix.toString();
+    }
+
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) return "";
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.length() == 0) return "";
+            }
+        }
+        return prefix;
+    }
 }

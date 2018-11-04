@@ -104,4 +104,10 @@ public class SolutionTest {
     public void maxArea() {
         assertEquals(49, solution.maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}));
     }
+
+    @Test
+    public void longestCommonPrefix() {
+        assertEquals("fl", solution.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+        assertEquals("", solution.longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
+    }
 }
