@@ -89,4 +89,19 @@ public class SolutionTest {
         assertEquals(true, solution.isPalindrome(0));
         assertEquals(true, solution.isPalindrome(1001));
     }
+
+    @Test
+    public void isMatch() {
+        assertEquals(false, solution.isMatch("aa", "a"));
+        assertEquals(true, solution.isMatch("aa", "a*"));
+        assertEquals(true, solution.isMatch("ab", ".*"));
+        assertEquals(true, solution.isMatch("aab", "c*a*b"));
+        assertEquals(false, solution.isMatch("mississippi", "mis*is*p*."));
+
+    }
+
+    @Test
+    public void maxArea() {
+        assertEquals(49, solution.maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}));
+    }
 }

@@ -267,4 +267,33 @@ class Solution {
         }
         return x == reversed || x == reversed / 10;
     }
+
+    public boolean isMatch(String s, String p) {
+        return s.matches(p);
+    }
+
+    public int maxArea2(int[] height) {
+
+        int maxArea = 0;
+        for (int i = 0; i < height.length; i++) {
+            for (int j = i + 1; j < height.length; j++) {
+                int area = (j - i) * Math.min(height[i], height[j]);
+                maxArea = Math.max(maxArea, area);
+            }
+        }
+        return maxArea;
+    }
+
+    public int maxArea(int[] height) {
+        int maxArea = 0, start = 0, end = height.length - 1;
+        while (start < end) {
+            maxArea = Math.max(maxArea, (end - start) * Math.min(height[start], height[end]));
+            if (height[start] < height[end]) {
+                start++;
+            } else {
+                end--;
+            }
+        }
+        return maxArea;
+    }
 }
