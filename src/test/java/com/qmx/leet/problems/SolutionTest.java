@@ -79,4 +79,14 @@ public class SolutionTest {
         assertEquals(21, solution.reverse(120));
         assertEquals(0, solution.reverse(1534236469));
     }
+
+    @Test
+    public void isPalindrome() {
+        assertEquals(true, solution.isPalindrome(121));
+        assertEquals(false, solution.isPalindrome(-121));
+        assertEquals(false, solution.isPalindrome(10));
+        assertEquals(false, solution.isPalindrome(2147483647));
+        assertEquals(true, solution.isPalindrome(0));
+        assertEquals(true, solution.isPalindrome(1001));
+    }
 }
