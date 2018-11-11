@@ -3,6 +3,10 @@ package com.qmx.leet.problems;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -109,5 +113,14 @@ public class SolutionTest {
     public void longestCommonPrefix() {
         assertEquals("fl", solution.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
         assertEquals("", solution.longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
+    }
+
+    @Test
+    public void threeSum() {
+        List<List<Integer>> expected = new ArrayList<>();
+        expected.add(Arrays.asList(-1, 0, 1));
+        expected.add(Arrays.asList(-1, -1, 2));
+//        assertEquals(expected, solution.threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+//        assertEquals(expected, solution.threeSum(new int[]{0, 0, 0}));
     }
 }

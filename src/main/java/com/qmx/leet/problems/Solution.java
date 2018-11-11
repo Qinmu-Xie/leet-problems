@@ -326,4 +326,36 @@ class Solution {
         }
         return prefix;
     }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if (nums.length < 3) {
+            return ans;
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 2; i++) {
+            int j = i + 1;
+            int k = nums.length - 1;
+            if (i == 0 || nums[i] > nums[i - 1])  // handle duplicate here
+                while (j < k) {
+                    if (nums[i] + nums[j] + nums[k] == 0) {
+                        ans.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                        j++;
+                        k--;
+
+                        // handle duplicate here
+                        while (j < k && nums[j] == nums[j - 1])
+                            j++;
+                        while (k > j && nums[k] == nums[k + 1])
+                            k--;
+                    } else if (nums[i] + nums[j] + nums[k] < 0) {
+                        j++;
+                    } else {
+                        k--;
+                    }
+                }
+        }
+        return ans;
+    }
+
 }
